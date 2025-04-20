@@ -1,0 +1,49 @@
+{
+  "id": "org.pvoutput",
+  "version": "1.0.1",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "name": {
+    "en": "PVOutput"
+  },
+  "description": {
+    "en": "Sharing and comparing PV output data",
+    "nl": "Delen en vergelijken van PV opbrengst gegevens"
+  },
+  "brandColor": "#1aa6ed",
+  "tags": {
+    "en": [
+      "PVOutput",
+      "Inverter",
+      "Solar",
+      "Solar panels",
+      "PV"
+    ],
+    "nl": [
+      "PVOutput",
+      "Omvormer",
+      "Zonnepanelen",
+      "PV"
+    ]
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "R.M. de Gruijter"
+  },
+  "copyright": "R.M. de Gruijter (rmdegruijter@gmail.com)",
+  "license": "GPL-3.0-or-later",
+  "homeyCommunityTopicId": 134648,
+  "support": "https://github.com/gruijter/org.pvoutput/issues"
+}

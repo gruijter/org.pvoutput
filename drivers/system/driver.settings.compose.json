@@ -1,0 +1,89 @@
+[
+	{
+		"type": "group",
+		"label": {
+			"en": "PVOutput System Information",
+			"nl:": "PVOutput Systeem Informatie"
+		},
+		"children": [
+			{
+				"id": "systemName",
+				"type": "label",
+				"label": {
+					"en": "System name",
+					"nl": "Systeem naam"
+				},
+				"value": ""
+			},
+			{
+				"id": "systemSize",
+				"type": "label",
+				"label": {
+					"en": "System size",
+					"nl": "Systeem grootte"
+				},
+				"value": ""
+			}
+		]
+	},
+	{
+		"type": "group",
+		"label": {
+			"en": "PVOutput settings",
+			"nl": "PVOutput instellingen"
+		},
+		"children": [
+			{
+				"id": "systemId",
+				"type": "text",
+				"label": {
+					"en": "System ID",
+					"nl": "Systeem ID"
+				},
+				"value": ""
+			},
+			{
+				"id": "apiKey",
+				"type": "password",
+				"label": {
+					"en": "API key",
+					"nl": "API sleutel"
+				},
+				"value": ""
+			},
+			{
+				"id": "interval",
+				"type": "dropdown",
+				"label": {
+					"en": "Update interval (minutes)",
+					"nl": "Update interval (minuten)"
+				},
+				"hint": {
+					"en": "Interval for fetching data from PVOutput.",
+					"nl": "Interval voor het ophalen van gegevens van PVOutput."
+				},
+				"values": [
+					{
+						"id": "5",
+						"label": {
+							"en": "5"
+						}
+					},
+					{
+						"id": "15",
+						"label": {
+							"en": "15"
+						}
+					},
+					{
+						"id": "60",
+						"label": {
+							"en": "60"
+						}
+					}
+				],
+				"value": "5"
+			}
+		]
+	}
+]

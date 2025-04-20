@@ -1,0 +1,51 @@
+{
+	"highlight": true,
+	"title": {
+		"en": "Upload PV data to PVOutput.",
+		"nl": "Upload PV data naar PVOutput."
+
+	},
+	"titleFormatted": {
+		"en": "Upload PV data: [[power]]Watt, [[meter]]kWh today until now.",
+		"nl": "Upload PV data: [[power]]Watt, [[meter]]kWh vandaag tot nu."
+	},
+	"hint": {
+		"en": "Upload the current values of the solar panels. You can enter one or both values. Use the special WHEN card to prevent sending too often. Note that the energy (kWh) should contain the daily value.",
+		"nl": "Upload de huidige waarden van de zonnepanelen. Upload niet vaker dan eens per minuut. Je kunt één of beide waarden invullen. Gebruik de speciale ALS kaart om te voorkomenen dat je te vaak stuurt. Let op: de energie (kWh) is moet de dagelijkse waarde bevatten."
+	},
+	"args": [
+		{
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=uploader"
+    },
+		{
+			"type": "number",
+			"name": "meter",
+			"title": { 
+				"en": "Energy meter",
+				"nl": "Energiemeter"
+			},
+      "placeholder": {
+        "en": "optional",
+				"nl": "optioneel"
+      },
+			"required": false,
+			"value": null
+		},
+		{
+			"type": "number",
+			"name": "power",
+			"title": { 
+				"en": "Power",
+				"nl": "Vermogen"
+			},
+			"placeholder": {
+        "en": "mandatory",
+				"nl": "verplicht"
+      },
+			"required": false,
+			"value": null
+		}
+	]
+}

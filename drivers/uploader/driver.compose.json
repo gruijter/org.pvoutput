@@ -1,0 +1,63 @@
+{
+  "name": {
+    "en": "Data uploader",
+    "nl": "Data uploader"
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "class": "other",
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [],
+  "energy": {
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": {
+          "en": "System ID",
+          "nl": "Systeem ID"
+        },
+        "usernamePlaceholder": {
+          "en": "System ID"
+        },
+        "passwordLabel": {
+          "en": "API key",
+          "nl": "API sleutel"
+        },
+        "passwordPlaceholder": {
+          "en": "API key"
+        },
+        "logo": "../assets/images/small.jpg",
+        "title": {
+          "en": "Upload your solar power data from a flow to PVOutput",
+          "nl": "Upload je zonne-energie data vanuit een flow naar PVOutput"
+        }
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "options": {
+        "singular": true
+      },
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

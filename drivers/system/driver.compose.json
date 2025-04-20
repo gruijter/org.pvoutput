@@ -1,0 +1,62 @@
+{
+  "name": {
+    "en": "Solar system",
+    "nl": "PV systeem"
+  },
+  "class": "solarpanel",
+  "capabilities": [
+    "meter_power",
+    "measure_power"
+  ],
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "connectivity": ["cloud"],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login_credentials",
+      "template": "login_credentials",
+      "options": {
+        "usernameLabel": {
+          "en": "System ID",
+          "nl": "Systeem ID"
+        },
+        "usernamePlaceholder": {
+          "en": "System ID"
+        },
+        "passwordLabel": {
+          "en": "API key",
+          "nl": "API sleutel"
+        },
+        "passwordPlaceholder": {
+          "en": "API key"
+        },
+        "logo": "../assets/images/small.jpg",
+        "title": {
+          "en": "Add your PVOutput solar system to Homey",
+          "nl": "Voeg je PVOutput PV systeem toe aan Homey"
+        }
+      }
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "options": {
+        "singular": true
+      },
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

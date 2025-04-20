@@ -1,0 +1,14 @@
+{
+	"title": {
+		"en": "New upload interval starts",
+		"nl": "Nieuw upload interval begint"
+	},
+	"highlight": true,
+	"args": [
+		{
+		  "type": "device",
+		  "name": "device",
+		  "filter": "driver_id=uploader"
+		}
+	]
+}

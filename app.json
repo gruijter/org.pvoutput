@@ -1,0 +1,397 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "org.pvoutput",
+  "version": "1.0.1",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local",
+    "cloud"
+  ],
+  "name": {
+    "en": "PVOutput"
+  },
+  "description": {
+    "en": "Sharing and comparing PV output data",
+    "nl": "Delen en vergelijken van PV opbrengst gegevens"
+  },
+  "brandColor": "#1aa6ed",
+  "tags": {
+    "en": [
+      "PVOutput",
+      "Inverter",
+      "Solar",
+      "Solar panels",
+      "PV"
+    ],
+    "nl": [
+      "PVOutput",
+      "Omvormer",
+      "Zonnepanelen",
+      "PV"
+    ]
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "R.M. de Gruijter"
+  },
+  "copyright": "R.M. de Gruijter (rmdegruijter@gmail.com)",
+  "license": "GPL-3.0-or-later",
+  "homeyCommunityTopicId": 134648,
+  "support": "https://github.com/gruijter/org.pvoutput/issues",
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "New upload interval starts",
+          "nl": "Nieuw upload interval begint"
+        },
+        "highlight": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=uploader"
+          }
+        ],
+        "id": "new_interval"
+      }
+    ],
+    "actions": [
+      {
+        "highlight": true,
+        "title": {
+          "en": "Upload PV data to PVOutput.",
+          "nl": "Upload PV data naar PVOutput."
+        },
+        "titleFormatted": {
+          "en": "Upload PV data: [[power]]Watt, [[meter]]kWh today until now.",
+          "nl": "Upload PV data: [[power]]Watt, [[meter]]kWh vandaag tot nu."
+        },
+        "hint": {
+          "en": "Upload the current values of the solar panels. You can enter one or both values. Use the special WHEN card to prevent sending too often. Note that the energy (kWh) should contain the daily value.",
+          "nl": "Upload de huidige waarden van de zonnepanelen. Upload niet vaker dan eens per minuut. Je kunt één of beide waarden invullen. Gebruik de speciale ALS kaart om te voorkomenen dat je te vaak stuurt. Let op: de energie (kWh) is moet de dagelijkse waarde bevatten."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=uploader"
+          },
+          {
+            "type": "number",
+            "name": "meter",
+            "title": {
+              "en": "Energy meter",
+              "nl": "Energiemeter"
+            },
+            "placeholder": {
+              "en": "optional",
+              "nl": "optioneel"
+            },
+            "required": false,
+            "value": null
+          },
+          {
+            "type": "number",
+            "name": "power",
+            "title": {
+              "en": "Power",
+              "nl": "Vermogen"
+            },
+            "placeholder": {
+              "en": "mandatory",
+              "nl": "verplicht"
+            },
+            "required": false,
+            "value": null
+          }
+        ],
+        "id": "send_data"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Solar system",
+        "nl": "PV systeem"
+      },
+      "class": "solarpanel",
+      "capabilities": [
+        "meter_power",
+        "measure_power"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/system/assets/images/small.png",
+        "large": "/drivers/system/assets/images/large.png",
+        "xlarge": "/drivers/system/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "System ID",
+              "nl": "Systeem ID"
+            },
+            "usernamePlaceholder": {
+              "en": "System ID"
+            },
+            "passwordLabel": {
+              "en": "API key",
+              "nl": "API sleutel"
+            },
+            "passwordPlaceholder": {
+              "en": "API key"
+            },
+            "logo": "../assets/images/small.jpg",
+            "title": {
+              "en": "Add your PVOutput solar system to Homey",
+              "nl": "Voeg je PVOutput PV systeem toe aan Homey"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "options": {
+            "singular": true
+          },
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "system",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "PVOutput System Information",
+            "nl:": "PVOutput Systeem Informatie"
+          },
+          "children": [
+            {
+              "id": "systemName",
+              "type": "label",
+              "label": {
+                "en": "System name",
+                "nl": "Systeem naam"
+              },
+              "value": ""
+            },
+            {
+              "id": "systemSize",
+              "type": "label",
+              "label": {
+                "en": "System size",
+                "nl": "Systeem grootte"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "PVOutput settings",
+            "nl": "PVOutput instellingen"
+          },
+          "children": [
+            {
+              "id": "systemId",
+              "type": "text",
+              "label": {
+                "en": "System ID",
+                "nl": "Systeem ID"
+              },
+              "value": ""
+            },
+            {
+              "id": "apiKey",
+              "type": "password",
+              "label": {
+                "en": "API key",
+                "nl": "API sleutel"
+              },
+              "value": ""
+            },
+            {
+              "id": "interval",
+              "type": "dropdown",
+              "label": {
+                "en": "Update interval (minutes)",
+                "nl": "Update interval (minuten)"
+              },
+              "hint": {
+                "en": "Interval for fetching data from PVOutput.",
+                "nl": "Interval voor het ophalen van gegevens van PVOutput."
+              },
+              "values": [
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                },
+                {
+                  "id": "15",
+                  "label": {
+                    "en": "15"
+                  }
+                },
+                {
+                  "id": "60",
+                  "label": {
+                    "en": "60"
+                  }
+                }
+              ],
+              "value": "5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Data uploader",
+        "nl": "Data uploader"
+      },
+      "images": {
+        "small": "/drivers/uploader/assets/images/small.png",
+        "large": "/drivers/uploader/assets/images/large.png",
+        "xlarge": "/drivers/uploader/assets/images/xlarge.png"
+      },
+      "class": "other",
+      "platforms": [
+        "local",
+        "cloud"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [],
+      "energy": {},
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "usernameLabel": {
+              "en": "System ID",
+              "nl": "Systeem ID"
+            },
+            "usernamePlaceholder": {
+              "en": "System ID"
+            },
+            "passwordLabel": {
+              "en": "API key",
+              "nl": "API sleutel"
+            },
+            "passwordPlaceholder": {
+              "en": "API key"
+            },
+            "logo": "../assets/images/small.jpg",
+            "title": {
+              "en": "Upload your solar power data from a flow to PVOutput",
+              "nl": "Upload je zonne-energie data vanuit een flow naar PVOutput"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "options": {
+            "singular": true
+          },
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "uploader",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "PVOutput System Information",
+            "nl:": "PVOutput Systeem Informatie"
+          },
+          "children": [
+            {
+              "id": "systemName",
+              "type": "label",
+              "label": {
+                "en": "System name",
+                "nl": "Systeem naam"
+              },
+              "value": ""
+            },
+            {
+              "id": "systemSize",
+              "type": "label",
+              "label": {
+                "en": "System size (Watt)",
+                "nl": "Systeem grootte (Watt)"
+              },
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "PVOutput settings",
+            "nl": "PVOutput instellingen"
+          },
+          "children": [
+            {
+              "id": "systemId",
+              "type": "text",
+              "label": {
+                "en": "System ID",
+                "nl": "Systeem ID"
+              },
+              "value": ""
+            },
+            {
+              "id": "apiKey",
+              "type": "password",
+              "label": {
+                "en": "API key",
+                "nl": "API sleutel"
+              },
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

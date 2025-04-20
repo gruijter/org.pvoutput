@@ -1,0 +1,1 @@
+Lees de opbrengst van je zonnepanelen in vanuit PVOutput.org en krijg een totaaloverzicht van je thuisgebruik in Homey Energy. Maak flows om je eigen zonnestroom zoveel mogelijk zelf te gebruiken. Stuur de opbrengst van je zonnepanelen live naar PVOutput.org, en vergelijk dat met PV systemen in de buurt.

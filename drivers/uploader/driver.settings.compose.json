@@ -1,0 +1,56 @@
+[
+	{
+		"type": "group",
+		"label": {
+			"en": "PVOutput System Information",
+			"nl:": "PVOutput Systeem Informatie"
+		},
+		"children": [
+			{
+				"id": "systemName",
+				"type": "label",
+				"label": {
+					"en": "System name",
+					"nl": "Systeem naam"
+				},
+				"value": ""
+			},
+			{
+				"id": "systemSize",
+				"type": "label",
+				"label": {
+					"en": "System size (Watt)",
+					"nl": "Systeem grootte (Watt)"
+				},
+				"value": ""
+			}
+		]
+	},
+	{
+		"type": "group",
+		"label": {
+			"en": "PVOutput settings",
+			"nl": "PVOutput instellingen"
+		},
+		"children": [
+			{
+				"id": "systemId",
+				"type": "text",
+				"label": {
+					"en": "System ID",
+					"nl": "Systeem ID"
+				},
+				"value": ""
+			},
+			{
+				"id": "apiKey",
+				"type": "password",
+				"label": {
+					"en": "API key",
+					"nl": "API sleutel"
+				},
+				"value": ""
+			}
+		]
+	}
+]
