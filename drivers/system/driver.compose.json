@@ -28,16 +28,16 @@
           "nl": "Systeem ID"
         },
         "usernamePlaceholder": {
-          "en": "System ID"
+          "en": ""
         },
         "passwordLabel": {
           "en": "API key",
           "nl": "API sleutel"
         },
         "passwordPlaceholder": {
-          "en": "API key"
+          "en": ""
         },
-        "logo": "../assets/images/small.jpg",
+        "logo": "../assets/images/small.png",
         "title": {
           "en": "Add your PVOutput solar system to Homey",
           "nl": "Voeg je PVOutput PV systeem toe aan Homey"

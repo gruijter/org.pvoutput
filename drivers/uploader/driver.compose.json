@@ -29,19 +29,19 @@
           "nl": "Systeem ID"
         },
         "usernamePlaceholder": {
-          "en": "System ID"
+          "en": ""
         },
         "passwordLabel": {
           "en": "API key",
           "nl": "API sleutel"
         },
         "passwordPlaceholder": {
-          "en": "API key"
+          "en": ""
         },
-        "logo": "../assets/images/small.jpg",
+        "logo": "../assets/images/small.png",
         "title": {
-          "en": "Upload your solar power data from a flow to PVOutput",
-          "nl": "Upload je zonne-energie data vanuit een flow naar PVOutput"
+          "en": "Upload your solar power data from a Flow to PVOutput",
+          "nl": "Upload je zonne-energie data vanuit een Flow naar PVOutput"
         }
       }
     },
