@@ -117,7 +117,7 @@ module.exports = class MyDevice extends Homey.Device {
   async handleDeviceData(status) {
     // console.dir(status, { depth: null });
     this.setCapability('measure_power', Number(status.powerGeneration)).catch((error) => this.error(error));
-    this.setCapability('meter_power', Number(status.energyGeneration)).catch((error) => this.error(error));
+    this.setCapability('meter_power', Number(status.energyGeneration) / 1000).catch((error) => this.error(error));
     // // set settings that have changed
     // const newSettings = {
     //   systemId,
