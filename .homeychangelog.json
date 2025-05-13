@@ -13,5 +13,8 @@
   },
   "1.0.4": {
     "en": "Fixed wH vs kWh values for PV system."
+  },
+  "1.0.5": {
+    "en": "Added consumed energy, cumulative meter, temperature and voltage to Uploader."
   }
 }

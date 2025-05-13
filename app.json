@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "org.pvoutput",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "compatibility": ">=12.0.0",
   "sdk": 3,
   "platforms": [
@@ -73,12 +73,12 @@
           "nl": "Upload PV data naar PVOutput."
         },
         "titleFormatted": {
-          "en": "Upload PV data: [[power]]Watt, [[meter]]kWh today until now.",
-          "nl": "Upload PV data: [[power]]Watt, [[meter]]kWh vandaag tot nu."
+          "en": "Upload PV data: [[power]]Watt, [[meter]]kWh, [[meterConsumption]]kWh, kWh is only today: [[notCumulative]], [[voltage]]V, [[temperature]]°C.",
+          "nl": "Upload PV data: [[power]]Watt, [[meter]]kWh, [[meterConsumption]]kWh, kWh is alleen vandaag: [[notCumulative]], [[voltage]]V, [[temperature]]°C."
         },
         "hint": {
-          "en": "Upload the current values of the solar panels. You can enter one or both values. Use the special WHEN card to prevent sending too often. Note that the energy (kWh) should contain the daily value.",
-          "nl": "Upload de huidige waarden van de zonnepanelen. Upload niet vaker dan eens per minuut. Je kunt één of beide waarden invullen. Gebruik de speciale ALS kaart om te voorkomenen dat je te vaak stuurt. Let op: de energie (kWh) is moet de dagelijkse waarde bevatten."
+          "en": "Upload the actual values of the solar panels. You can enter one or multiple values. Use the special WHEN card to prevent sending too often.",
+          "nl": "Upload de huidige waarden van de zonnepanelen. Je kunt één of meerdere waarden invullen. Gebruik de speciale ALS kaart om te voorkomenen dat je te vaak stuurt."
         },
         "args": [
           {
@@ -90,8 +90,8 @@
             "type": "number",
             "name": "meter",
             "title": {
-              "en": "Energy meter",
-              "nl": "Energiemeter"
+              "en": "Energy production",
+              "nl": "Energie productie"
             },
             "placeholder": {
               "en": "optional",
@@ -102,14 +102,65 @@
           },
           {
             "type": "number",
+            "name": "meterConsumption",
+            "title": {
+              "en": "Energy consumption",
+              "nl": "Energie verbruik"
+            },
+            "placeholder": {
+              "en": "optional",
+              "nl": "optioneel"
+            },
+            "required": false,
+            "value": null
+          },
+          {
+            "type": "checkbox",
+            "name": "notCumulative",
+            "title": {
+              "en": "Daily energy",
+              "nl": "Dagelijkse energie"
+            },
+            "value": true
+          },
+          {
+            "type": "number",
             "name": "power",
             "title": {
               "en": "Power",
               "nl": "Vermogen"
             },
             "placeholder": {
-              "en": "mandatory",
-              "nl": "verplicht"
+              "en": "optional",
+              "nl": "optioneel"
+            },
+            "required": false,
+            "value": null
+          },
+          {
+            "type": "number",
+            "name": "voltage",
+            "title": {
+              "en": "Voltage",
+              "nl": "Voltage"
+            },
+            "placeholder": {
+              "en": "optional",
+              "nl": "optioneel"
+            },
+            "required": false,
+            "value": null
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur"
+            },
+            "placeholder": {
+              "en": "optional",
+              "nl": "optioneel"
             },
             "required": false,
             "value": null

@@ -126,10 +126,34 @@ class PVOutputClient {
       const queery = {
         d: date,
         t: time,
-        v1: values.meter,
-        v2: values.power,
-        // v5: values.temperature,
-        v6: values.voltage,
+      };
+      if (values.meter != null && values.meter !== undefined) queery.v1 = values.meter;
+      if (values.power != null && values.power !== undefined) queery.v2 = values.power;
+      if (values.powerConsumption != null && values.powerConsumption !== undefined) queery.v3 = values.powerConsumption;
+      if (values.temperature != null && values.temperature !== undefined) queery.v5 = values.temperature;
+      if (values.voltage != null && values.voltage !== undefined) queery.v6 = values.voltage;
+      if (values.cumulative != null && values.cumulative !== undefined) queery.c1 = values.cumulative ? 1 : 0;
+      const res = await this._makeRequest(`${addStatusEP}?${querystring.stringify(queery)}`);
+      return Promise.resolve(res);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  async addNetStatus(opts) {
+    try {
+      const values = opts || {};
+      const timestamp = new Date();
+      const date = `${timestamp.getFullYear()}${pad(timestamp.getMonth() + 1, 2)}${pad(timestamp.getDate(), 2)}`;
+      const time = timestamp.toLocaleTimeString([], {
+        hour: '2-digit', minute: '2-digit', hour12: false, timeZone: values.tz || 'Europe/Amsterdam',
+      });
+      const queery = {
+        d: date,
+        t: time,
+        v2: values.powerExported,
+        v4: values.powerImported,
+        n: 1,
       };
       const res = await this._makeRequest(`${addStatusEP}?${querystring.stringify(queery)}`);
       return Promise.resolve(res);

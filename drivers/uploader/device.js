@@ -95,12 +95,29 @@ module.exports = class MyDevice extends Homey.Device {
   async sendData(args, source) {
     if (!this.api) throw Error('PVOutput is not connected');
     if ((Date.now() - this.lastUpload) < 2 * 60 * 1000) throw Error('Sending too fast. Wait at least 2 minutes.');
-    const { power, meter } = args;
-    if (power === this.lastPower && meter === this.lastMeter) return Promise.resolve(true);
-    this.lastPower = power;
-    this.lastMeter = meter;
-    this.log(`${this.getName()} sending ${power}W, ${meter}kWh by ${source}`);
-    await this.api.addStatus({ power, meter: meter * 1000, tz: this.tz });
+    const {
+      power,
+      meter,
+      meterConsumption,
+      voltage,
+      temperature,
+      notCummulative,
+    } = args;
+    if (this.lastArgs && Object.keys(args).every((key) => args[key] === this.lastArgs[key])) {
+      return Promise.resolve(true);
+    }
+    this.lastArgs = args;
+    this.log(`${this.getName()} sending ${power}W, ${meter}kWh, cum:${!notCummulative}, ${meterConsumption}kWh, ${voltage}V, ${temperature}°C by ${source}`);
+    const status = {
+      power,
+      meter: meter * 1000,
+      meterConsumption: meterConsumption * 1000,
+      cumulative: !notCummulative,
+      voltage,
+      temperature,
+      tz: this.tz,
+    };
+    await this.api.addStatus(status);
     this.lastUpload = Date.now();
     return Promise.resolve(true);
   }
